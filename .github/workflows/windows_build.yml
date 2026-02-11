@@ -44,7 +44,7 @@ jobs:
           ./acore.sh compiler build
 
       - name: Upload AzerothCore binaries
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: AzerothCore-Windows
           path: build/bin/Release
