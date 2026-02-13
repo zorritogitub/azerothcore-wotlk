@@ -37,14 +37,17 @@ jobs:
         run: |
           ./acore.sh install-deps
 
-      - name: Build
+      - name: Build (Release)
         shell: bash
         run: |
           export CTOOLS_BUILD=all
-          ./acore.sh compiler build
+          ./acore.sh compiler build --build-type Release
 
       - name: Upload AzerothCore binaries
         uses: actions/upload-artifact@v4
         with:
           name: AzerothCore-Windows
-          path: build/bin/Release
+          path: |
+            build/bin/Release
+            build/bin/RelWithDebInfo
+            build/bin/Debug
